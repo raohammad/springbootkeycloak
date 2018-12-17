@@ -9,8 +9,10 @@ KeyCloak integration with REST based on Spring Boot.
 
     curl -ss --data "grant_type=password&client_id=my-app&username=test&password=test" http://192.168.64.2:9080/auth/realms/myrealm/protocol/openid-connect/token
 
-3. Copy the token into below command
+3. Start the application
+
+    mvn clean spring-boot:run
+
+4. Copy the token into below command
 
     curl -H "Authorization: bearer MYTOKEN" http://localhost:9002/user/hello
-
-4.
