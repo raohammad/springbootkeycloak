@@ -1,0 +1,26 @@
+server:
+  port: 9002
+
+keycloak:
+  auth-server-url: http://192.168.64.2:9080/auth
+  resource: dapmvx-app
+  realm: dapmvx
+  public-client: true
+  #bearer-only: true
+  ssl-required: external
+  use-resource-role-mappings: true
+  security-constraints[0]:
+    authRoles[0]: ROLE_USER
+    securityCollections[0]:
+      patterns[0]: /user/*
+  security-constraints[1]:
+    authRoles[0]: ROLE_ADMIN
+    securityCollections[0]:
+      patterns[0]: /admin/*
+
+spring:
+  data:
+    mongodb.host: 192.168.64.2
+    mongodb.port: 27017
+    mongodb.uri: mongodb://192.168.64.2:27017/api
+    mongo.repositories.enabled: true
